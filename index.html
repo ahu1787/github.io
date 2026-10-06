@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="ja" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMINA | Official Website</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0a0a0f',
+                            card: '#12121c',
+                            gold: '#d4af37',
+                            'gold-light': '#f3e5ab',
+                            violet: '#8a2be2',
+                            accent: '#6c5ce7',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Noto Sans JP', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0a0f;
+            color: #f3f4f6;
+            font-family: 'Noto Sans JP', sans-serif;
+            overflow-x: hidden;
+        }
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+        /* Custom Glassmorphism */
+        .glass {
+            background: rgba(18, 18, 28, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .glass-nav {
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        /* Gradient Text */
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #fff2a3 0%, #d4af37 50%, #aa7c11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-violet {
+            background: linear-gradient(135deg, #a29bfe 0%, #8a2be2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a3d;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+        /* Glow animations */
+        .glow-gold:hover {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        .glow-violet:hover {
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-purple-900 selection:text-yellow-200">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Artist Logo / Name -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <span class="font-cinzel text-3xl font-extrabold tracking-widest text-gradient-gold group-hover:opacity-90 transition">LUMINA</span>
+                <span class="text-xs uppercase tracking-widest text-gray-400 border-l border-gray-700 pl-3 hidden sm:inline-block">Official Site</span>
+            </a>
+
+            <!-- Desktop Menu Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8 text-sm uppercase tracking-wider font-medium">
+                <a href="#news" class="hover:text-amber-400 transition hover:scale-105">News</a>
+                <a href="#topics" class="hover:text-amber-400 transition hover:scale-105">Topics</a>
+                <a href="#music" class="hover:text-amber-400 transition hover:scale-105">Music</a>
+                <a href="#videos" class="hover:text-amber-400 transition hover:scale-105">Videos</a>
+                <a href="#live" class="hover:text-amber-400 transition hover:scale-105">Live</a>
+                <a href="#goods" class="hover:text-amber-400 transition hover:scale-105">Goods</a>
+                <a href="#biography" class="hover:text-amber-400 transition hover:scale-105">Bio</a>
+                <a href="#contact" class="hover:text-amber-400 transition hover:scale-105">Contact</a>
+            </nav>
+
+            <!-- Right Actions & SNS Links -->
+            <div class="hidden sm:flex items-center space-x-5">
+                <a href="https://youtube.com" target="_blank" rel="noopener" class="text-gray-400 hover:text-red-500 text-lg transition transform hover:scale-110" title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://spotify.com" target="_blank" rel="noopener" class="text-gray-400 hover:text-green-500 text-lg transition transform hover:scale-110" title="Spotify">
+                    <i class="fab fa-spotify"></i>
+                </a>
+                <a href="https://apple.com" target="_blank" rel="noopener" class="text-gray-400 hover:text-pink-500 text-lg transition transform hover:scale-110" title="Apple Music">
+                    <i class="fab fa-apple"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener" class="text-gray-400 hover:text-blue-400 text-lg transition transform hover:scale-110" title="X (Twitter)">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+
+                <!-- Shopping Cart Icon with Count -->
+                <button onclick="toggleCartModal()" class="relative p-2 text-gray-300 hover:text-amber-400 transition">
+                    <i class="fas fa-shopping-bag text-xl"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-purple-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold hidden">0</span>
+                </button>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <div class="flex items-center space-x-3 lg:hidden">
+                <button onclick="toggleCartModal()" class="p-2 text-gray-300 hover:text-amber-400 relative">
+                    <i class="fas fa-shopping-bag text-xl"></i>
+                    <span id="cart-count-mobile" class="absolute -top-1 -right-1 bg-purple-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold hidden">0</span>
+                </button>
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="text-2xl text-gray-200 focus:outline-none p-2">
+                    <i class="fas fa-bars" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden glass border-t border-gray-800 px-6 py-6 space-y-4 text-center text-lg uppercase tracking-widest">
+            <a href="#news" onclick="toggleMobileMenu()" class="block py-2 text-gray-300 hover:text-amber-400">News</a>
+            <a href="#topics" onclick="toggleMobileMenu()" class="block py-2 text-gray-300 hover:text-amber-400">Topics</a>
+            <a href="#music" onclick="toggleMobileMenu()" class="block py-2 text-gray-300 hover:text-amber-400">Music</a>
+            <a href="#videos" onclick="toggleMobileMenu()" class="block py-2 text-gray-300 hover:text-amber-400">Videos</a>
+            <a href="#live" onclick="toggleMobileMenu()" class="block py-2 text-gray-300 hover:text-amber-400">Live</a>
+            <a href="#goods" onclick="toggleMobileMenu()" class="block py-2 text-gray-300 hover:text-amber-400">Goods</a>
+            <a href="#biography" onclick="toggleMobileMenu()" class="block py-2 text-gray-300 hover:text-amber-400">Bio</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-gray-300 hover:text-amber-400">Contact</a>
+            
+            <div class="pt-4 border-t border-gray-800 flex justify-center space-x-6 text-2xl">
+                <a href="https://youtube.com" target="_blank" class="text-gray-400 hover:text-red-500"><i class="fab fa-youtube"></i></a>
+                <a href="https://spotify.com" target="_blank" class="text-gray-400 hover:text-green-500"><i class="fab fa-spotify"></i></a>
+                <a href="https://apple.com" target="_blank" class="text-gray-400 hover:text-pink-500"><i class="fab fa-apple"></i></a>
+                <a href="https://twitter.com" target="_blank" class="text-gray-400 hover:text-blue-400"><i class="fab fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Graphic Elements -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1920&auto=format&fit=crop" alt="Artist background" class="w-full h-full object-cover opacity-25 filter blur-sm scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/70 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0f] via-transparent to-[#0a0a0f]"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Left Headline Info -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-purple-900/50 border border-purple-500/30 text-purple-300 text-xs font-semibold uppercase tracking-widest">
+                    <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                    <span>New Release Available Now</span>
+                </div>
+                <h1 class="font-cinzel text-5xl sm:text-7xl font-bold tracking-tight text-white leading-tight">
+                    ECHOES OF <br>
+                    <span class="text-gradient-gold">ETERNITY</span>
+                </h1>
+                <p class="text-gray-300 text-lg max-w-2xl font-light leading-relaxed">
+                    光と闇の旋律が交差する、LUMINA 待望のニューシングル『Echoes of Eternity』配信スタート。魂を揺さぶる次世代のシンフォニック・ロック・サウンド。
+                </p>
+                
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#music" class="px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 to-amber-700 text-black font-bold uppercase tracking-wider hover:from-amber-400 hover:to-amber-600 transition shadow-lg shadow-amber-500/20 transform hover:-translate-y-0.5">
+                        <i class="fas fa-play mr-2"></i> 試聴・配信リンク
+                    </a>
+                    <a href="#videos" class="px-8 py-4 rounded-full glass border border-amber-500/30 text-white font-medium hover:bg-white/10 transition transform hover:-translate-y-0.5">
+                        <i class="fab fa-youtube text-red-500 mr-2"></i> MVを観る
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Featured Video Card Preview -->
+            <div class="lg:col-span-5">
+                <div class="glass p-4 sm:p-5 rounded-2xl relative glow-violet transition duration-500">
+                    <div class="relative aspect-video rounded-xl overflow-hidden group">
+                        <!-- Embedded YouTube iframe preview -->
+                        <iframe class="w-full h-full rounded-xl" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&controls=1&rel=0" title="LUMINA Latest Single" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="mt-4 flex justify-between items-center px-1">
+                        <div>
+                            <span class="text-xs uppercase text-amber-400 font-bold tracking-widest">Music Video</span>
+                            <h3 class="text-lg font-bold text-white">Echoes of Eternity (Official MV)</h3>
+                        </div>
+                        <span class="text-xs text-gray-400"><i class="fas fa-[#ff0000] fa-eye mr-1"></i>2.4M views</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS SECTION -->
+    <section id="news" class="py-20 relative border-t border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs uppercase text-purple-400 font-bold tracking-widest">Latest Information</span>
+                    <h2 class="font-cinzel text-4xl font-bold text-gradient-gold">NEWS</h2>
+                </div>
+                <p class="text-gray-400 text-sm mt-2 md:mt-0">アーティストの最新ニュースやお知らせ</p>
+            </div>
+
+            <!-- News Item List -->
+            <div class="space-y-4" id="news-container">
+                <!-- JavaScriptで動的ロード可能ですが初期表示用に埋め込み -->
+            </div>
+        </div>
+    </section>
+
+    <!-- TOPICS SECTION -->
+    <section id="topics" class="py-20 bg-gradient-to-b from-[#0a0a0f] via-[#12121c] to-[#0a0a0f] border-t border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase text-amber-400 font-bold tracking-widest">Features & Blogs</span>
+                <h2 class="font-cinzel text-4xl font-bold text-gradient-gold">TOPICS</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-amber-500 to-purple-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="topics-container">
+                <!-- Topics Cards filled dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- YOUTUBE LATEST VIDEOS SECTION -->
+    <section id="videos" class="py-20 border-t border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-12">
+                <div>
+                    <span class="text-xs uppercase text-red-500 font-bold tracking-widest"><i class="fab fa-youtube mr-1"></i> YouTube Channel</span>
+                    <h2 class="font-cinzel text-4xl font-bold text-gradient-gold">LATEST VIDEOS</h2>
+                </div>
+                <a href="https://youtube.com" target="_blank" class="mt-4 md:mt-0 px-6 py-2 rounded-full border border-red-500/40 text-red-400 hover:bg-red-500 hover:text-white transition text-sm font-semibold flex items-center">
+                    <i class="fab fa-youtube text-lg mr-2"></i> チャンネル登録はこちら
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="videos-container">
+                <!-- Videos Cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- MUSIC / DISCOGRAPHY SECTION -->
+    <section id="music" class="py-20 bg-[#0d0d14] border-t border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase text-purple-400 font-bold tracking-widest">Discography</span>
+                <h2 class="font-cinzel text-4xl font-bold text-gradient-gold">MUSIC</h2>
+                <p class="text-gray-400 text-sm mt-2">リリース楽曲の試聴とストリーミング配信</p>
+            </div>
+
+            <!-- Music Discography Cards Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10" id="music-container">
+                <!-- Music cards loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- GOODS SECTION -->
+    <section id="goods" class="py-20 border-t border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs uppercase text-amber-400 font-bold tracking-widest">Official Merchandise</span>
+                    <h2 class="font-cinzel text-4xl font-bold text-gradient-gold">OFFICIAL GOODS</h2>
+                </div>
+                <p class="text-gray-400 text-sm mt-2 md:mt-0">ライブ会場＆オンラインストア限定グッズ</p>
+            </div>
+
+            <!-- Goods Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="goods-container">
+                <!-- Goods filled via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE / TOUR SECTION -->
+    <section id="live" class="py-20 bg-gradient-to-b from-[#0a0a0f] to-[#12121c] border-t border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase text-purple-400 font-bold tracking-widest">Tour & Events</span>
+                <h2 class="font-cinzel text-4xl font-bold text-gradient-gold">LIVE INFORMATION</h2>
+            </div>
+
+            <div class="space-y-6 max-w-4xl mx-auto" id="live-container">
+                <!-- Live Schedule items -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAN CLUB BANNER -->
+    <section class="py-16 relative overflow-hidden my-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass p-10 sm:p-14 rounded-3xl relative overflow-hidden border border-amber-500/30 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-purple-600/20 rounded-full filter blur-3xl pointer-events-none"></div>
+                <div class="relative z-10 space-y-4 max-w-2xl text-center md:text-left">
+                    <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold uppercase tracking-widest">Fanclub Membership</span>
+                    <h3 class="font-cinzel text-3xl sm:text-4xl font-bold text-white">OFFICIAL FAN CLUB 「LUMINARY」</h3>
+                    <p class="text-gray-300 text-sm">
+                        会員限定のライブチケット最速先行受付、WEBラジオ、限定オフショット写真・動画、誕生日メッセージなど限定コンテンツが盛りだくさん！
+                    </p>
+                </div>
+                <div class="relative z-10 flex-shrink-0">
+                    <button onclick="alert('FC入会ページへ遷移します（デモ）')" class="px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold uppercase tracking-wider shadow-xl shadow-purple-600/30 transition transform hover:-translate-y-1">
+                        入会案内・新規登録 <i class="fas fa-chevron-right ml-2 text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BIOGRAPHY / PROFILE SECTION -->
+    <section id="biography" class="py-20 border-t border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop" alt="Artist Profile" class="rounded-2xl shadow-2xl object-cover w-full h-[500px] border border-gray-800">
+                        <div class="absolute -bottom-6 -right-6 glass p-6 rounded-2xl hidden sm:block">
+                            <span class="font-cinzel text-2xl font-bold text-gradient-gold">LUMINA</span>
+                            <p class="text-xs text-gray-400">Formed in 2021 / Tokyo, Japan</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-xs uppercase text-amber-400 font-bold tracking-widest">Biography</span>
+                    <h2 class="font-cinzel text-4xl font-bold text-white">PROFILE</h2>
+                    <p class="text-gray-300 leading-relaxed font-light">
+                        ヴォーカル・クララと、コンポーザー/プロデューサーのRenによるシンフォニック・オルタナティヴ・ロックユニット。クラシック音楽の重厚で洗練された旋律と、モダンなエレクトロニック・サウンド、鋭いロックサウンドを高次元で融合させた独自の音楽世界を展開する。
+                    </p>
+                    <p class="text-gray-300 leading-relaxed font-light">
+                        2021年の結成以降、YouTubeを中心に圧倒的な世界観のMVを次々と発表し、世界中のロック・アニメファンから絶大な支持を獲得。2024年リリースの1st Albumは主要配信チャートで1位を記録。
+                    </p>
+
+                    <!-- Member Info -->
+                    <div class="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="glass p-4 rounded-xl">
+                            <h4 class="font-bold text-amber-400 font-cinzel">CLARA (Vocal)</h4>
+                            <p class="text-xs text-gray-400 mt-1">圧倒的な表現力と幾重にも重なる透明感あるハイトーンボイスで魅了するフロント女性ヴォーカリスト。</p>
+                        </div>
+                        <div class="glass p-4 rounded-xl">
+                            <h4 class="font-bold text-purple-400 font-cinzel">REN (Composer / Guitar)</h4>
+                            <p class="text-xs text-gray-400 mt-1">作詞・作曲・編曲の全プロデュースを手掛け、繊細かつ重厚なオーケストレーションを構築する美学クリエイター。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT / INQUIRY SECTION -->
+    <section id="contact" class="py-20 bg-gradient-to-b from-[#0a0a0f] to-[#12121c] border-t border-gray-800/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs uppercase text-amber-400 font-bold tracking-widest">Get in Touch</span>
+                <h2 class="font-cinzel text-4xl font-bold text-gradient-gold">CONTACT</h2>
+                <p class="text-gray-400 text-sm mt-2">出演依頼、メディア取材、その他お問い合わせはこちら</p>
+            </div>
+
+            <form onsubmit="handleContactSubmit(event)" class="glass p-8 sm:p-10 rounded-2xl space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs uppercase text-gray-400 font-bold mb-2">お名前 / 貴社名 <span class="text-red-500">*</span></label>
+                        <input type="text" required class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-amber-400 transition" placeholder="山田 太郎">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase text-gray-400 font-bold mb-2">メールアドレス <span class="text-red-500">*</span></label>
+                        <input type="email" required class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-amber-400 transition" placeholder="example@email.com">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase text-gray-400 font-bold mb-2">お問い合わせ種別</label>
+                    <select class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-amber-400 transition">
+                        <option value="live">ライブ・イベント出演依頼</option>
+                        <option value="media">取材・メディア出演に関するお問い合わせ</option>
+                        <option value="fanmail">ファンレター・メッセージ</option>
+                        <option value="other">その他のお問い合わせ</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase text-gray-400 font-bold mb-2">メッセージ内容 <span class="text-red-500">*</span></label>
+                    <textarea rows="5" required class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-amber-400 transition" placeholder="お問い合わせ内容をご記入ください"></textarea>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="px-10 py-4 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold uppercase tracking-widest hover:from-amber-400 hover:to-amber-500 transition shadow-lg shadow-amber-500/20">
+                        送信する <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-12 border-t border-gray-900 text-gray-500 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-4">
+                <span class="font-cinzel text-2xl font-bold text-gradient-gold">LUMINA</span>
+                <span class="text-xs">&copy; 2026 LUMINA Official / ARTIST MUSIC INC. All Rights Reserved.</span>
+            </div>
+
+            <div class="flex space-x-6 text-xs uppercase tracking-widest">
+                <a href="#" onclick="alert('プライバシーポリシー（デモ）')" class="hover:text-gray-300">Privacy Policy</a>
+                <a href="#" onclick="alert('特定商取引法に基づく表記（デモ）')" class="hover:text-gray-300">Legal Notice</a>
+                <a href="#contact" class="hover:text-gray-300">Contact Us</a>
+            </div>
+
+            <div class="flex space-x-4 text-lg text-gray-400">
+                <a href="https://youtube.com" target="_blank" class="hover:text-red-500"><i class="fab fa-youtube"></i></a>
+                <a href="https://spotify.com" target="_blank" class="hover:text-green-500"><i class="fab fa-spotify"></i></a>
+                <a href="https://apple.com" target="_blank" class="hover:text-pink-500"><i class="fab fa-apple"></i></a>
+                <a href="https://twitter.com" target="_blank" class="hover:text-blue-400"><i class="fab fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- NEWS / TOPICS DETAIL MODAL POPUP -->
+    <div id="detail-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="glass max-w-2xl w-full rounded-2xl overflow-hidden p-6 sm:p-8 relative border border-amber-500/30 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modal-content">
+                <!-- Filled dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SHOPPING CART MODAL POPUP -->
+    <div id="cart-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="glass max-w-md w-full rounded-2xl p-6 relative border border-amber-500/30">
+            <button onclick="toggleCartModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="font-cinzel text-2xl font-bold text-gradient-gold mb-4"><i class="fas fa-shopping-bag mr-2"></i> SHOPPING CART</h3>
+            
+            <div id="cart-items" class="space-y-4 max-h-60 overflow-y-auto mb-6 divide-y divide-gray-800">
+                <p class="text-gray-400 text-sm py-4 text-center">カートに商品が入っていません。</p>
+            </div>
+
+            <div class="border-t border-gray-800 pt-4 flex justify-between items-center font-bold text-lg text-white mb-6">
+                <span>合計金額:</span>
+                <span id="cart-total" class="text-amber-400">¥0</span>
+            </div>
+
+            <button onclick="checkoutCart()" class="w-full py-3 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold uppercase tracking-wider hover:from-amber-400 hover:to-amber-500 transition">
+                購入手続きへ進む
+            </button>
+        </div>
+    </div>
+
+    <!-- FLOATING AUDIO PLAYER FOOTER -->
+    <div id="audio-player" class="fixed bottom-0 left-0 w-full z-40 glass border-t border-purple-500/30 p-4 transition-transform translate-y-full">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+            <div class="flex items-center space-x-4">
+                <img id="player-cover" src="" alt="Album Art" class="w-12 h-12 rounded-lg object-cover border border-amber-500/30">
+                <div>
+                    <h4 id="player-title" class="font-bold text-sm text-white">Title</h4>
+                    <p id="player-artist" class="text-xs text-amber-400">LUMINA</p>
+                </div>
+            </div>
+
+            <!-- Player controls -->
+            <div class="flex items-center space-x-6">
+                <button onclick="togglePlayPause()" class="w-10 h-10 rounded-full bg-amber-400 text-black flex items-center justify-center text-lg hover:scale-105 transition">
+                    <i id="play-btn-icon" class="fas fa-play"></i>
+                </button>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-3 w-1/3">
+                <span class="text-xs text-gray-400">0:00</span>
+                <div class="w-full bg-gray-800 h-1.5 rounded-full overflow-hidden">
+                    <div id="player-progress" class="bg-amber-400 h-full w-1/3"></div>
+                </div>
+                <span class="text-xs text-gray-400">3:45</span>
+            </div>
+
+            <button onclick="closeAudioPlayer()" class="text-gray-400 hover:text-white">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // MOCK DATA
+        const newsData = [
+            {
+                id: 1,
+                date: '2026.10.01',
+                category: 'RELEASE',
+                title: 'New Single 『Echoes of Eternity』本日より世界同時配信開始！',
+                content: 'LUMINA待望のニューシングル『Echoes of Eternity』が各音楽配信サービスにて一斉配信開始となりました。MVも公式YouTubeチャンネルにて全編公開中！'
+            },
+            {
+                id: 2,
+                date: '2026.09.25',
+                category: 'LIVE',
+                title: '【ツアー情報】「LUMINA WORLD TOUR 2026 - AETHER」日本公演のオフィシャルFC最速先行受付スタート',
+                content: '11月よりスタートする全国アリーナツアー「LUMINA WORLD TOUR 2026 - AETHER」のファンクラブ限定最速チケット先行予約の受付を開始いたしました。'
+            },
+            {
+                id: 3,
+                date: '2026.09.15',
+                category: 'MEDIA',
+                title: '音楽雑誌「SOUND CREATORS 10月号」表紙＆ロングインタビュー掲載決定',
+                content: '9月28日発売の「SOUND CREATORS 10月号」にて、LUMINAの表紙巻頭特集が決定！新曲の制作秘話や最新機材についてのロングインタビューが掲載されます。'
+            }
+        ];
+
+        const topicsData = [
+            {
+                id: 1,
+                image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=600&auto=format&fit=crop',
+                tag: 'INTERVIEW',
+                title: '『Echoes of Eternity』楽曲制作の裏側に迫るスペシャルインタビュー',
+                desc: '重厚なシンフォニックサウンドとエレクトロニクスの融合はいかにして生まれたのか？クララとRenが語る。'
+            },
+            {
+                id: 2,
+                image: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=600&auto=format&fit=crop',
+                tag: 'BEHIND THE SCENES',
+                title: 'MV撮影メイキングフォトギャラリー公開！',
+                desc: '巨大な特設セットで撮影された最新Music Videoのメイキング写真と撮影エピソードをFC会員限定で限定公開。'
+            },
+            {
+                id: 3,
+                image: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=600&auto=format&fit=crop',
+                tag: 'GEAR',
+                title: 'Renの使用機材ペダルボード＆DTMシステム解説',
+                desc: 'ライブ＆レコーディングで実際に使用されているサウンドの要となる機材一式を徹底レポート。'
+            }
+        ];
+
+        const youtubeVideos = [
+            {
+                title: 'LUMINA - Echoes of Eternity (Official Music Video)',
+                embedId: 'dQw4w9WgXcQ',
+                views: '2.4M views'
+            },
+            {
+                title: 'LUMINA - Celestial Symphony (Live at Nippon Budokan)',
+                embedId: 'dQw4w9WgXcQ',
+                views: '1.8M views'
+            },
+            {
+                title: 'LUMINA - Midnight Resonance (Official Audio)',
+                embedId: 'dQw4w9WgXcQ',
+                views: '950K views'
+            }
+        ];
+
+        const musicData = [
+            {
+                id: 'm1',
+                title: 'Echoes of Eternity',
+                type: 'New Single',
+                date: '2026.10.01',
+                cover: 'https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=500&auto=format&fit=crop',
+                tracks: ['1. Echoes of Eternity', '2. Silent Horizon', '3. Echoes of Eternity (Instrumental)']
+            },
+            {
+                id: 'm2',
+                title: 'AETHERIA',
+                type: '1st Full Album',
+                date: '2025.04.15',
+                cover: 'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=500&auto=format&fit=crop',
+                tracks: ['1. Overture - Light & Dark', '2. Celestial Symphony', '3. Phantom Melody', '4. Aetheria']
+            }
+        ];
+
+        const goodsData = [
+            {
+                id: 'g1',
+                name: 'LUMINA Tour T-Shirt (Black)',
+                price: 4500,
+                status: 'In Stock',
+                image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=500&auto=format&fit=crop'
+            },
+            {
+                id: 'g2',
+                name: 'Echoes Acrylic Keyring Set',
+                price: 1800,
+                status: 'In Stock',
+                image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=500&auto=format&fit=crop'
+            },
+            {
+                id: 'g3',
+                name: 'Official LED Light Stick',
+                price: 3800,
+                status: 'Few Left',
+                image: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=500&auto=format&fit=crop'
+            },
+            {
+                id: 'g4',
+                name: 'AETHERIA Zip-up Hoodie',
+                price: 8500,
+                status: 'In Stock',
+                image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=500&auto=format&fit=crop'
+            }
+        ];
+
+        const liveData = [
+            {
+                date: '2026.11.12 (Thu)',
+                venue: 'Zepp Haneda (TOKYO)',
+                title: 'LUMINA WORLD TOUR 2026 - AETHER Day 1',
+                status: 'FC先行受付中'
+            },
+            {
+                date: '2026.11.20 (Fri)',
+                venue: 'Zepp Namba (OSAKA)',
+                title: 'LUMINA WORLD TOUR 2026 - AETHER Osaka',
+                status: 'FC先行受付中'
+            },
+            {
+                date: '2026.12.05 (Sat)',
+                venue: 'Nippon Budokan (TOKYO)',
+                title: 'LUMINA WORLD TOUR 2026 - AETHER FINAL',
+                status: '10/15 一般発売'
+            }
+        ];
+
+        // CART STATE
+        let cart = [];
+        let isPlaying = false;
+
+        // RENDER FUNCTIONS
+        function renderNews() {
+            const container = document.getElementById('news-container');
+            container.innerHTML = newsData.map(item => `
+                <div onclick="openNewsModal(${item.id})" class="glass p-5 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer hover:border-amber-500/50 transition group">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-xs text-gray-400 font-mono">${item.date}</span>
+                        <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">${item.category}</span>
+                        <h3 class="text-base font-medium text-white group-hover:text-amber-300 transition line-clamp-1">${item.title}</h3>
+                    </div>
+                    <span class="text-xs text-amber-400 flex items-center group-hover:translate-x-1 transition">
+                        詳細を読む <i class="fas fa-arrow-right ml-1"></i>
+                    </span>
+                </div>
+            `).join('');
+        }
+
+        function renderTopics() {
+            const container = document.getElementById('topics-container');
+            container.innerHTML = topicsData.map(item => `
+                <div onclick="openTopicModal(${item.id})" class="glass rounded-2xl overflow-hidden group cursor-pointer hover:border-purple-500/50 transition">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-3 left-3 bg-purple-900/80 text-purple-200 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider backdrop-blur-sm">${item.tag}</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-bold text-lg text-white group-hover:text-amber-300 transition line-clamp-2">${item.title}</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed line-clamp-2">${item.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderVideos() {
+            const container = document.getElementById('videos-container');
+            container.innerHTML = youtubeVideos.map(vid => `
+                <div class="glass rounded-2xl overflow-hidden p-3 hover:border-red-500/40 transition">
+                    <div class="aspect-video rounded-xl overflow-hidden mb-3">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/${vid.embedId}" title="${vid.title}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="font-bold text-sm text-white line-clamp-2 px-1">${vid.title}</h4>
+                    <p class="text-xs text-gray-400 mt-1 px-1"><i class="fab fa-youtube text-red-500 mr-1"></i>${vid.views}</p>
+                </div>
+            `).join('');
+        }
+
+        function renderMusic() {
+            const container = document.getElementById('music-container');
+            container.innerHTML = musicData.map(m => `
+                <div class="glass p-6 rounded-2xl flex flex-col sm:flex-row gap-6">
+                    <img src="${m.cover}" alt="${m.title}" class="w-36 h-36 rounded-xl object-cover border border-amber-500/30 flex-shrink-0 shadow-lg">
+                    <div class="space-y-3 flex-grow">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-purple-400 uppercase tracking-widest">${m.type}</span>
+                            <span class="text-xs text-gray-400 font-mono">${m.date}</span>
+                        </div>
+                        <h3 class="font-cinzel text-2xl font-bold text-white">${m.title}</h3>
+                        <ul class="text-xs text-gray-300 space-y-1">
+                            ${m.tracks.map(t => `<li><i class="fas fa-music text-amber-400/60 mr-2"></i>${t}</li>`).join('')}
+                        </ul>
+                        
+                        <div class="pt-3 flex flex-wrap gap-2">
+                            <button onclick="playTrack('${m.title}', '${m.cover}')" class="px-4 py-2 rounded-full bg-amber-500/20 text-amber-300 hover:bg-amber-500 hover:text-black transition text-xs font-bold flex items-center">
+                                <i class="fas fa-play mr-1.5"></i> 試聴する
+                            </button>
+                            <a href="https://spotify.com" target="_blank" class="p-2 rounded-full glass hover:text-green-400 transition text-xs" title="Spotify">
+                                <i class="fab fa-spotify text-base"></i>
+                            </a>
+                            <a href="https://apple.com" target="_blank" class="p-2 rounded-full glass hover:text-pink-400 transition text-xs" title="Apple Music">
+                                <i class="fab fa-apple text-base"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderGoods() {
+            const container = document.getElementById('goods-container');
+            container.innerHTML = goodsData.map(g => `
+                <div class="glass rounded-2xl p-4 flex flex-col justify-between hover:border-amber-500/40 transition group">
+                    <div>
+                        <div class="aspect-square rounded-xl overflow-hidden mb-4 relative bg-black/40">
+                            <img src="${g.image}" alt="${g.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                            <span class="absolute top-2 right-2 px-2.5 py-1 rounded-full text-[10px] font-bold bg-black/60 text-amber-300 backdrop-blur-md">${g.status}</span>
+                        </div>
+                        <h4 class="font-bold text-sm text-white mb-1">${g.name}</h4>
+                        <p class="text-amber-400 font-bold text-lg mb-4">¥${g.price.toLocaleString()}</p>
+                    </div>
+                    <button onclick="addToCart('${g.id}')" class="w-full py-2.5 rounded-xl bg-purple-900/40 hover:bg-purple-600 text-purple-200 hover:text-white border border-purple-500/30 transition text-xs font-bold uppercase tracking-wider flex items-center justify-center">
+                        <i class="fas fa-cart-plus mr-2"></i> カートに追加
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function renderLive() {
+            const container = document.getElementById('live-container');
+            container.innerHTML = liveData.map(l => `
+                <div class="glass p-6 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <span class="text-xs font-mono text-amber-400 font-bold">${l.date}</span>
+                        <h3 class="font-bold text-lg text-white">${l.venue}</h3>
+                        <p class="text-xs text-gray-400">${l.title}</p>
+                    </div>
+                    <div class="flex items-center space-x-3 w-full sm:w-auto justify-between sm:justify-end">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-900/50 text-purple-300 border border-purple-500/30">${l.status}</span>
+                        <button onclick="alert('チケット申し込みページ（デモ）')" class="px-5 py-2 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-black text-xs font-bold uppercase tracking-wider hover:from-amber-400 hover:to-amber-500 transition">
+                            チケット応募
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // MODAL FUNCTIONS
+        function openNewsModal(id) {
+            const item = newsData.find(n => n.id === id);
+            if (!item) return;
+            const content = document.getElementById('modal-content');
+            content.innerHTML = `
+                <span class="text-xs text-gray-400 font-mono">${item.date}</span>
+                <span class="ml-2 px-2 py-0.5 rounded text-xs font-bold bg-amber-500/20 text-amber-300">${item.category}</span>
+                <h2 class="font-bold text-2xl text-white mt-3 mb-4">${item.title}</h2>
+                <p class="text-gray-300 text-sm leading-relaxed">${item.content}</p>
+            `;
+            document.getElementById('detail-modal').classList.remove('hidden');
+        }
+
+        function openTopicModal(id) {
+            const item = topicsData.find(t => t.id === id);
+            if (!item) return;
+            const content = document.getElementById('modal-content');
+            content.innerHTML = `
+                <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-purple-900/80 text-purple-200">${item.tag}</span>
+                <h2 class="font-bold text-2xl text-white mt-3 mb-4">${item.title}</h2>
+                <img src="${item.image}" alt="${item.title}" class="w-full h-60 object-cover rounded-xl mb-4">
+                <p class="text-gray-300 text-sm leading-relaxed">${item.desc}</p>
+            `;
+            document.getElementById('detail-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('detail-modal').classList.add('hidden');
+        }
+
+        // CART LOGIC
+        function addToCart(goodsId) {
+            const item = goodsData.find(g => g.id === goodsId);
+            if (!item) return;
+
+            const existing = cart.find(c => c.id === goodsId);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ ...item, qty: 1 });
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const countElem = document.getElementById('cart-count');
+            const countMobileElem = document.getElementById('cart-count-mobile');
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+
+            if (totalQty > 0) {
+                countElem.textContent = totalQty;
+                countElem.classList.remove('hidden');
+                countMobileElem.textContent = totalQty;
+                countMobileElem.classList.remove('hidden');
+            } else {
+                countElem.classList.add('hidden');
+                countMobileElem.classList.add('hidden');
+            }
+
+            // Render Cart Modal Items
+            const cartItemsElem = document.getElementById('cart-items');
+            const cartTotalElem = document.getElementById('cart-total');
+
+            if (cart.length === 0) {
+                cartItemsElem.innerHTML = '<p class="text-gray-400 text-sm py-4 text-center">カートに商品が入っていません。</p>';
+                cartTotalElem.textContent = '¥0';
+                return;
+            }
+
+            let total = 0;
+            cartItemsElem.innerHTML = cart.map(item => {
+                total += item.price * item.qty;
+                return `
+                    <div class="flex items-center justify-between py-3">
+                        <div>
+                            <h5 class="text-sm font-bold text-white">${item.name}</h5>
+                            <p class="text-xs text-amber-400">¥${item.price.toLocaleString()} x ${item.qty}</p>
+                        </div>
+                        <button onclick="removeFromCart('${item.id}')" class="text-gray-500 hover:text-red-400 text-xs">
+                            <i class="fas fa-trash"></i> 削除
+                        </button>
+                    </div>
+                `;
+            }).join('');
+
+            cartTotalElem.textContent = `¥${total.toLocaleString()}`;
+        }
+
+        function removeFromCart(goodsId) {
+            cart = cart.filter(c => c.id !== goodsId);
+            updateCartUI();
+        }
+
+        function toggleCartModal() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function checkoutCart() {
+            if (cart.length === 0) {
+                alert('カートが空です。');
+                return;
+            }
+            alert('ご注文ありがとうございます！（デモ画面のため実際の決済は行われません）');
+            cart = [];
+            updateCartUI();
+            toggleCartModal();
+        }
+
+        // AUDIO PLAYER LOGIC
+        function playTrack(title, cover) {
+            const player = document.getElementById('audio-player');
+            document.getElementById('player-title').textContent = title;
+            document.getElementById('player-cover').src = cover;
+            player.classList.remove('translate-y-full');
+            isPlaying = true;
+            document.getElementById('play-btn-icon').className = 'fas fa-pause';
+        }
+
+        function togglePlayPause() {
+            isPlaying = !isPlaying;
+            document.getElementById('play-btn-icon').className = isPlaying ? 'fas fa-pause' : 'fas fa-play';
+        }
+
+        function closeAudioPlayer() {
+            document.getElementById('audio-player').classList.add('translate-y-full');
+        }
+
+        // MOBILE MENU TOGGLE
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.className = 'fas fa-bars';
+            } else {
+                icon.className = 'fas fa-times';
+            }
+        }
+
+        // CONTACT FORM SUBMIT HANDLER
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            alert('お問い合わせを受け付けました。ご送信ありがとうございます。');
+            event.target.reset();
+        }
+
+        // INITIALIZATION
+        window.onload = function() {
+            renderNews();
+            renderTopics();
+            renderVideos();
+            renderMusic();
+            renderGoods();
+            renderLive();
+        };
+    </script>
+</body>
+</html>
