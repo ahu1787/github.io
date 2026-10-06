@@ -3,16 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- =================================================================
+         【セキュリティ設定: CSP (Content Security Policy)】
+         新しい外部APIやドメインを追加する場合は、該当するsrcディレクティブへ追記してください。
+    ================================================================== -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com; img-src 'self' data: https:; connect-src 'self';">
+    
     <title>宙音りりぃ (Sorane Lily) / microcosmos Official Website</title>
-    <!-- Tailwind CSS -->
+
+    <!-- Tailwind CSS (デザインフレームワーク) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Space & Classical Theme -->
+    <!-- Google Fonts (フォント設定) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
+    <!-- Font Awesome Icons (アイコンフォント) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- =================================================================
+         【Tailwind CSS テーマカラー設定】
+         ブランドカラーを変更したい場合は、以下のカラーコード（hex）を修正してください。
+    ================================================================== -->
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -20,13 +32,13 @@
                 extend: {
                     colors: {
                         cosmos: {
-                            deep: '#070714',
-                            card: '#0f0f26',
-                            purple: '#6c4bb6',
-                            accent: '#a88beb',
-                            gold: '#e6c875',
-                            lightgold: '#fff2cb',
-                            starlight: '#e2e8f0',
+                            deep: '#070714',       /* メイン背景色（宇宙の深み） */
+                            card: '#0f0f26',       /* カード・パネル背景色 */
+                            purple: '#6c4bb6',     /* プライマリパープル */
+                            accent: '#a88beb',     /* ハイライトパープル */
+                            gold: '#e6c875',       /* アクセントゴールド */
+                            lightgold: '#fff2cb',  /* グラデーション用ライトゴールド */
+                            starlight: '#e2e8f0',  /* テキスト色 */
                         }
                     },
                     fontFamily: {
@@ -103,7 +115,10 @@
 </head>
 <body class="antialiased stars-bg">
 
-    <!-- NAVIGATION HEADER -->
+    <!-- =================================================================
+         【ヘッダー・ナビゲーション】
+         SNSのURL変更時は以下の `href` を変更してください。
+    ================================================================== -->
     <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300" id="main-header">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Artist Brand Logo -->
@@ -125,22 +140,24 @@
                 <a href="#contact" class="hover:text-cosmos-gold transition hover:scale-105">CONTACT</a>
             </nav>
 
-            <!-- Social Links & Action -->
+            <!-- Social Links (YouTube / X - URL管理箇所) -->
             <div class="hidden sm:flex items-center space-x-4">
-                <a href="https://www.youtube.com/@%E5%AE%99%E9%9F%B3%E3%82%8A%E3%82%8A%E3%81%83-SoraneLily" target="_blank" rel="noopener" class="px-4 py-2 rounded-full bg-red-600/20 border border-red-500/40 text-red-400 hover:bg-red-600 hover:text-white text-xs font-semibold tracking-wider transition flex items-center shadow-lg shadow-red-900/20">
+                <!-- 【更新箇所】YouTube チャンネルURL -->
+                <a href="https://www.youtube.com/@%E5%AE%99%E9%9F%B3%E3%82%8A%E3%82%8A%E3%81%83-SoraneLily" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-red-600/20 border border-red-500/40 text-red-400 hover:bg-red-600 hover:text-white text-xs font-semibold tracking-wider transition flex items-center shadow-lg shadow-red-900/20">
                     <i class="fab fa-youtube text-sm mr-2"></i> YouTube
                 </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener" class="text-gray-400 hover:text-blue-400 text-lg transition p-2" title="X (Twitter)">
+                <!-- 【更新箇所】X (旧Twitter) URL -->
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 text-lg transition p-2" title="X (Twitter)">
                     <i class="fab fa-x-twitter"></i>
                 </a>
             </div>
 
             <!-- Mobile Hamburger Menu Button -->
             <div class="flex items-center space-x-2 lg:hidden">
-                <a href="https://www.youtube.com/@%E5%AE%99%E9%9F%B3%E3%82%8A%E3%82%8A%E3%81%83-SoraneLily" target="_blank" class="text-red-500 text-xl p-2">
+                <a href="https://www.youtube.com/@%E5%AE%99%E9%9F%B3%E3%82%8A%E3%82%8A%E3%81%83-SoraneLily" target="_blank" rel="noopener noreferrer" class="text-red-500 text-xl p-2">
                     <i class="fab fa-youtube"></i>
                 </a>
-                <button onclick="toggleMobileMenu()" class="text-2xl text-gray-200 focus:outline-none p-2">
+                <button onclick="toggleMobileMenu()" class="text-2xl text-gray-200 focus:outline-none p-2" aria-label="Toggle Navigation">
                     <i class="fas fa-bars" id="menu-icon"></i>
                 </button>
             </div>
@@ -158,9 +175,11 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- =================================================================
+         【HERO SECTION (トップメインビジュアル)】
+         ピックアップ楽曲や最新MVを更新する際は、iframeのsrcパラメータ内の動画IDを変更してください。
+    ================================================================== -->
     <section class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
-        <!-- Cosmic Ambient Gradient Backdrop -->
         <div class="absolute inset-0 z-0">
             <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cosmos-purple/20 rounded-full blur-[120px] pointer-events-none"></div>
             <div class="absolute bottom-10 right-10 w-[400px] h-[400px] bg-amber-600/10 rounded-full blur-[100px] pointer-events-none"></div>
@@ -170,6 +189,7 @@
             
             <!-- Left Info & Artist Tag -->
             <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <!-- 【更新箇所】キャッチコピー・バッジ表記 -->
                 <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-cosmos-purple/30 border border-cosmos-accent/30 text-cosmos-accent text-xs font-medium tracking-widest">
                     <span class="w-2 h-2 rounded-full bg-cosmos-gold animate-pulse"></span>
                     <span>NEW ORIGINAL SINGLE OUT NOW</span>
@@ -186,7 +206,7 @@
                 </p>
 
                 <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
-                    <a href="https://www.youtube.com/@%E5%AE%99%E9%9F%B3%E3%82%8A%E3%82%8A%E3%81%83-SoraneLily" target="_blank" rel="noopener" class="px-8 py-4 rounded-full bg-red-600 hover:bg-red-500 text-white font-bold text-xs uppercase tracking-widest transition shadow-xl shadow-red-900/40 flex items-center transform hover:-translate-y-0.5">
+                    <a href="https://www.youtube.com/@%E5%AE%99%E9%9F%B3%E3%82%8A%E3%82%8A%E3%81%83-SoraneLily" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-full bg-red-600 hover:bg-red-500 text-white font-bold text-xs uppercase tracking-widest transition shadow-xl shadow-red-900/40 flex items-center transform hover:-translate-y-0.5">
                         <i class="fab fa-youtube text-lg mr-2.5"></i> 公式チャンネルを見る
                     </a>
                     <a href="#videos" class="px-8 py-4 rounded-full glass-panel text-cosmos-starlight hover:text-cosmos-gold border border-cosmos-accent/30 text-xs font-bold uppercase tracking-widest transition flex items-center transform hover:-translate-y-0.5">
@@ -199,20 +219,29 @@
             <div class="lg:col-span-5">
                 <div class="glass-panel p-4 sm:p-5 rounded-3xl relative border border-cosmos-accent/30 shadow-2xl">
                     <div class="relative aspect-video rounded-2xl overflow-hidden group">
-                        <!-- Embedded Original MV: 風と鈴 -->
+                        <!-- =================================================================
+                             【更新箇所: メインフィーチャー動画】
+                             YouTubeの埋め込みID (例: CNZdr66sjhU) を変更したい動画のIDに書き換えてください。
+                             URLフォーマット: https://www.youtube.com/embed/{動画ID}?autoplay=0&rel=0
+                        ================================================================== -->
                         <iframe class="w-full h-full rounded-2xl" src="https://www.youtube.com/embed/CNZdr66sjhU?autoplay=0&rel=0" title="【MV】 「風と鈴」/ microcosmos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
+                    <!-- 【更新箇所】フィーチャー動画のタイトルとクレジット -->
                     <div class="mt-4 px-2">
                         <span class="text-[10px] font-bold uppercase text-cosmos-gold tracking-widest"><i class="fas fa-sparkles mr-1"></i> Original Release</span>
                         <h3 class="text-lg font-bold text-white mt-1">【MV】「風と鈴」 / microcosmos</h3>
-                        <p class="text-xs text-gray-400 mt-1">作詞・作曲・歌歌唱：宙音りりぃ（Sorane Lily）</p>
+                        <p class="text-xs text-gray-400 mt-1">作詞・作曲・歌唱：宙音りりぃ（Sorane Lily）</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NEWS SECTION -->
+    <!-- =================================================================
+         【NEWS SECTION】
+         表示データはページの最下部にある JavaScript の `newsList` 配列で動的にレンダリングされます。
+         NEWSを追加・編集したい場合は、JS内の `newsList` を更新してください。
+    ================================================================== -->
     <section id="news" class="py-20 relative border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
@@ -223,13 +252,15 @@
                 <p class="text-gray-400 text-xs mt-2 md:mt-0">宙音りりぃの最新のお知らせ・リリース情報</p>
             </div>
 
-            <div class="space-y-4" id="news-container">
-                <!-- Filled via JS -->
-            </div>
+            <!-- JavaScriptで `newsList` から安全に自動描画されます -->
+            <div class="space-y-4" id="news-container"></div>
         </div>
     </section>
 
-    <!-- TOPICS SECTION -->
+    <!-- =================================================================
+         【TOPICS SECTION】
+         表示データは JavaScript の `topicsList` 配列で管理されます。
+    ================================================================== -->
     <section id="topics" class="py-20 bg-cosmos-card/40 border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -238,13 +269,16 @@
                 <div class="w-12 h-0.5 bg-gradient-to-r from-cosmos-gold to-cosmos-accent mx-auto mt-4 rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="topics-container">
-                <!-- Topics Cards filled dynamically -->
-            </div>
+            <!-- JavaScriptで `topicsList` から安全に自動描画されます -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="topics-container"></div>
         </div>
     </section>
 
-    <!-- YOUTUBE LATEST VIDEOS SECTION -->
+    <!-- =================================================================
+         【YOUTUBE LATEST VIDEOS SECTION】
+         YouTube動画の一覧は JavaScript の `youtubeVideos` 配列で管理されます。
+         新しい動画を追加する際は、JS内の `youtubeVideos` にEmbed IDとタイトルを追加してください。
+    ================================================================== -->
     <section id="videos" class="py-20 border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-12">
@@ -252,19 +286,21 @@
                     <span class="text-xs uppercase text-red-500 font-bold tracking-widest"><i class="fab fa-youtube mr-1"></i> Official Channel</span>
                     <h2 class="font-mincho text-3xl sm:text-4xl font-bold text-gradient-gold mt-1">LATEST VIDEOS</h2>
                 </div>
-                <a href="https://www.youtube.com/@%E5%AE%99%E9%9F%B3%E3%82%8A%E3%82%8A%E3%81%83-SoraneLily" target="_blank" rel="noopener" class="mt-4 md:mt-0 px-6 py-2.5 rounded-full border border-red-500/40 text-red-400 hover:bg-red-600 hover:text-white transition text-xs font-semibold flex items-center shadow-lg shadow-red-950/30">
+                <!-- 【更新箇所】YouTube チャンネル登録リンク -->
+                <a href="https://www.youtube.com/@%E5%AE%99%E9%9F%B3%E3%82%8A%E3%82%8A%E3%81%83-SoraneLily" target="_blank" rel="noopener noreferrer" class="mt-4 md:mt-0 px-6 py-2.5 rounded-full border border-red-500/40 text-red-400 hover:bg-red-600 hover:text-white transition text-xs font-semibold flex items-center shadow-lg shadow-red-950/30">
                     <i class="fab fa-youtube text-base mr-2"></i> チャンネル登録（@宙音りりぃ-SoraneLily）
                 </a>
             </div>
 
-            <!-- Embedded Video List -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="videos-container">
-                <!-- Loaded via JS -->
-            </div>
+            <!-- JavaScriptで `youtubeVideos` から動画カードが安全に描画されます -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="videos-container"></div>
         </div>
     </section>
 
-    <!-- MUSIC / DISCOGRAPHY SECTION -->
+    <!-- =================================================================
+         【MUSIC / DISCOGRAPHY SECTION】
+         楽曲データは JavaScript の `musicTracks` 配列で管理されます。
+    ================================================================== -->
     <section id="music" class="py-20 bg-cosmos-card/30 border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -273,13 +309,16 @@
                 <p class="text-gray-400 text-xs mt-2">オリジナル曲とカバー楽曲のプレビュー</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="music-container">
-                <!-- Loaded via JS -->
-            </div>
+            <!-- JavaScriptで `musicTracks` から曲カードが安全に描画されます -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="music-container"></div>
         </div>
     </section>
 
-    <!-- GOODS / STORE SECTION (COMING SOON) -->
+    <!-- =================================================================
+         【GOODS / STORE SECTION】
+         現在は「COMING SOON（開設準備中）」の表示になっています。
+         ECサイトを開設した際は、以下のリンクボタンを直接のショップURL（BOOTH、BASE等）へ変更してください。
+    ================================================================== -->
     <section id="goods" class="py-20 border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -287,7 +326,6 @@
                 <h2 class="font-mincho text-3xl sm:text-4xl font-bold text-gradient-gold mt-1">GOODS</h2>
             </div>
 
-            <!-- Clean "COMING SOON" Banner without irrelevant dummy products -->
             <div class="glass-panel rounded-3xl p-10 sm:p-16 text-center max-w-4xl mx-auto border border-cosmos-accent/30 relative overflow-hidden">
                 <div class="absolute -right-16 -top-16 w-64 h-64 bg-cosmos-purple/20 rounded-full blur-3xl pointer-events-none"></div>
                 
@@ -302,6 +340,12 @@
                     限定デザインの各種グッズ等のリリース情報を楽しみにお待ちください。
                 </p>
 
+                <!-- 
+                   【将来の更新ガイド】
+                   ECサイト開設時は `onclick="openComingSoonModal(...)"` を消去し、
+                   `<a href="https://your-shop-domain.booth.pm" target="_blank" rel="noopener noreferrer" class="...">`
+                   に変更してください。
+                -->
                 <button onclick="openComingSoonModal('GOODS STORE')" class="px-8 py-3.5 rounded-full bg-cosmos-purple/40 hover:bg-cosmos-purple text-cosmos-starlight hover:text-white border border-cosmos-accent/40 text-xs font-bold uppercase tracking-wider transition shadow-lg">
                     <i class="fas fa-bell mr-2"></i> 最新情報をチェックする
                 </button>
@@ -309,13 +353,16 @@
         </div>
     </section>
 
-    <!-- BIOGRAPHY / PROFILE SECTION -->
+    <!-- =================================================================
+         【BIOGRAPHY / PROFILE SECTION】
+         プロフィールテキストや経歴の変更は以下のタグ内を直接編集してください。
+    ================================================================== -->
     <section id="biography" class="py-20 bg-cosmos-card/40 border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-5">
                     <div class="relative">
-                        <!-- Space Atmosphere Placeholder Art -->
+                        <!-- アーティストビジュアル画像／アートワーク（画像のURLをセット可能） -->
                         <div class="w-full h-[420px] rounded-3xl bg-gradient-to-br from-cosmos-card via-cosmos-purple/30 to-cosmos-deep border border-cosmos-accent/30 flex items-center justify-center p-8 text-center relative overflow-hidden shadow-2xl">
                             <div class="absolute inset-0 stars-bg opacity-70"></div>
                             <div class="relative z-10 space-y-4">
@@ -327,6 +374,7 @@
                     </div>
                 </div>
 
+                <!-- 【更新箇所】プロフィールテキスト -->
                 <div class="lg:col-span-7 space-y-6">
                     <span class="text-xs uppercase text-cosmos-accent font-bold tracking-widest">Artist Profile</span>
                     <h2 class="font-mincho text-3xl sm:text-4xl font-bold text-white">BIOGRAPHY</h2>
@@ -353,7 +401,10 @@
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- =================================================================
+         【CONTACT SECTION】
+         お問い合わせフォーム
+    ================================================================== -->
     <section id="contact" class="py-20 border-t border-gray-900">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -362,21 +413,21 @@
                 <p class="text-gray-400 text-xs mt-2">ご依頼・お問い合わせはこちらから</p>
             </div>
 
-            <form onsubmit="handleContactSubmit(event)" class="glass-panel p-8 sm:p-10 rounded-3xl space-y-6">
+            <form id="contact-form" onsubmit="handleContactSubmit(event)" class="glass-panel p-8 sm:p-10 rounded-3xl space-y-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs uppercase text-gray-400 font-bold mb-2">お名前 / 貴社名 <span class="text-red-500">*</span></label>
-                        <input type="text" required class="w-full bg-cosmos-deep/80 border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cosmos-accent transition" placeholder="山田 太郎">
+                        <label for="contact-name" class="block text-xs uppercase text-gray-400 font-bold mb-2">お名前 / 貴社名 <span class="text-red-500">*</span></label>
+                        <input id="contact-name" type="text" required maxlength="100" class="w-full bg-cosmos-deep/80 border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cosmos-accent transition" placeholder="山田 太郎">
                     </div>
                     <div>
-                        <label class="block text-xs uppercase text-gray-400 font-bold mb-2">メールアドレス <span class="text-red-500">*</span></label>
-                        <input type="email" required class="w-full bg-cosmos-deep/80 border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cosmos-accent transition" placeholder="example@email.com">
+                        <label for="contact-email" class="block text-xs uppercase text-gray-400 font-bold mb-2">メールアドレス <span class="text-red-500">*</span></label>
+                        <input id="contact-email" type="email" required maxlength="150" class="w-full bg-cosmos-deep/80 border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cosmos-accent transition" placeholder="example@email.com">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs uppercase text-gray-400 font-bold mb-2">メッセージ内容 <span class="text-red-500">*</span></label>
-                    <textarea rows="5" required class="w-full bg-cosmos-deep/80 border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cosmos-accent transition" placeholder="お問い合わせ内容をご記入ください"></textarea>
+                    <label for="contact-message" class="block text-xs uppercase text-gray-400 font-bold mb-2">メッセージ内容 <span class="text-red-500">*</span></label>
+                    <textarea id="contact-message" rows="5" required maxlength="2000" class="w-full bg-cosmos-deep/80 border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cosmos-accent transition" placeholder="お問い合わせ内容をご記入ください"></textarea>
                 </div>
 
                 <div class="text-center">
@@ -396,28 +447,34 @@
                 <span class="text-[10px] text-gray-500">&copy; microcosmos / 宙音りりぃ All Rights Reserved.</span>
             </div>
 
+            <!-- 【更新箇所】フッターSNSリンク -->
             <div class="flex space-x-6">
-                <a href="https://www.youtube.com/@%E5%AE%99%E9%9F%B3%E3%82%8A%E3%82%8A%E3%81%83-SoraneLily" target="_blank" class="text-gray-400 hover:text-red-500 text-lg"><i class="fab fa-youtube"></i></a>
-                <a href="https://twitter.com" target="_blank" class="text-gray-400 hover:text-blue-400 text-lg"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.youtube.com/@%E5%AE%99%E9%9F%B3%E3%82%8A%E3%82%8A%E3%81%83-SoraneLily" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-red-500 text-lg" aria-label="YouTube Channel"><i class="fab fa-youtube"></i></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 text-lg" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- MODAL DIALOG POPUP -->
+    <!-- MODAL DIALOG POPUP (共通ポップアップ) -->
     <div id="app-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
         <div class="glass-panel max-w-lg w-full rounded-3xl p-6 sm:p-8 relative border border-cosmos-accent/40 text-center">
-            <button onclick="closeAppModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+            <button onclick="closeAppModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl" aria-label="Close Modal">
                 <i class="fas fa-times"></i>
             </button>
-            <div id="modal-body">
-                <!-- Dynamic Content -->
-            </div>
+            <div id="modal-body"></div>
         </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- =================================================================
+         【コンテンツ管理・データ更新スクリプト (MAINTENANCE DATA)】
+         ※ サイトの動画、NEWS、MUSICなどの更新は、主にこのJavaScript配列を編集します。
+    ================================================================== -->
     <script>
-        // Official Data
+        /* =================================================================
+           1. NEWS LIST (お知らせ一覧)
+           - 新しいお知らせを上に追加してください。
+           - category: 'RELEASE', 'COVER', 'LIVE', 'INFO', 'MEDIA' など
+        ================================================================== */
         const newsList = [
             {
                 date: '2026.09.26',
@@ -439,24 +496,34 @@
             }
         ];
 
+        /* =================================================================
+           2. YOUTUBE LATEST VIDEOS (最新動画リスト)
+           - embedId: YouTube動画URLの `v=` 以降の11桁の文字列
+             例: https://www.youtube.com/watch?v=CNZdr66sjhU -> 'CNZdr66sjhU'
+           - type: 'Original', 'Cover', 'Live' など
+        ================================================================== */
         const youtubeVideos = [
             {
                 title: '【MV】 「風と鈴」/ microcosmos',
-                embedId: 'CNZdr66sjhU',
+                embedId: 'CNZdr66sjhU', // ← ここに動画IDを入力
                 type: 'Original'
             },
             {
                 title: 'セントエルモの火 (BUMP OF CHICKEN) / Cover by 宙音りりぃ',
-                embedId: 'v-j_aVmAkjQ',
+                embedId: 'v-j_aVmAkjQ', // ← ここに動画IDを入力
                 type: 'Cover'
             },
             {
                 title: '流れ星の正体 (BUMP OF CHICKEN) / Cover by 宙音りりぃ',
-                embedId: 'CNZdr66sjhU', // URL reference
+                embedId: 'CNZdr66sjhU', // ← ここに動画IDを入力
                 type: 'Cover'
             }
         ];
 
+        /* =================================================================
+           3. MUSIC / DISCOGRAPHY (ディスコグラフィー)
+           - embedId: 再生したいYouTubeの動画ID
+        ================================================================== */
         const musicTracks = [
             {
                 title: '風と鈴',
@@ -472,6 +539,9 @@
             }
         ];
 
+        /* =================================================================
+           4. TOPICS (特集記事・更新トピックス)
+        ================================================================== */
         const topicsList = [
             {
                 title: '「風と鈴」楽曲の世界観と制作エピソード',
@@ -490,90 +560,229 @@
             }
         ];
 
-        // RENDER FUNCTIONS
+        /* =================================================================
+           【内部処理・レンダリングプログラム】
+           ※ 以下のプログラム部分は、デザインや機能を変更しない限り修正不要です。
+        ================================================================== */
+
+        // SECURITY HELPER: Sanitize string input to prevent XSS
+        function sanitizeText(str) {
+            if (typeof str !== 'string') return '';
+            return str
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        // SAFE DOM RENDER FUNCTIONS
         function renderNews() {
             const container = document.getElementById('news-container');
-            container.innerHTML = newsList.map((item, index) => `
-                <div onclick="openNewsDetail(${index})" class="glass-panel p-5 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 cursor-pointer hover:border-cosmos-accent/50 transition">
-                    <div class="flex items-center space-x-4">
-                        <span class="text-xs text-gray-400 font-mono">${item.date}</span>
-                        <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-cosmos-purple/30 text-cosmos-accent border border-cosmos-accent/30">${item.category}</span>
-                        <h3 class="text-sm font-medium text-white hover:text-cosmos-gold transition line-clamp-1">${item.title}</h3>
-                    </div>
-                    <span class="text-xs text-cosmos-gold flex items-center">詳細 <i class="fas fa-chevron-right ml-1 text-[10px]"></i></span>
-                </div>
-            `).join('');
+            if (!container) return;
+            container.innerHTML = '';
+
+            newsList.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'glass-panel p-5 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 cursor-pointer hover:border-cosmos-accent/50 transition';
+                card.onclick = () => openNewsDetail(index);
+
+                const leftDiv = document.createElement('div');
+                leftDiv.className = 'flex items-center space-x-4';
+
+                const dateSpan = document.createElement('span');
+                dateSpan.className = 'text-xs text-gray-400 font-mono';
+                dateSpan.textContent = item.date;
+
+                const catSpan = document.createElement('span');
+                catSpan.className = 'px-2.5 py-0.5 rounded text-[10px] font-bold bg-cosmos-purple/30 text-cosmos-accent border border-cosmos-accent/30';
+                catSpan.textContent = item.category;
+
+                const titleH3 = document.createElement('h3');
+                titleH3.className = 'text-sm font-medium text-white hover:text-cosmos-gold transition line-clamp-1';
+                titleH3.textContent = item.title;
+
+                leftDiv.appendChild(dateSpan);
+                leftDiv.appendChild(catSpan);
+                leftDiv.appendChild(titleH3);
+
+                const rightSpan = document.createElement('span');
+                rightSpan.className = 'text-xs text-cosmos-gold flex items-center';
+                rightSpan.innerHTML = '詳細 <i class="fas fa-chevron-right ml-1 text-[10px]"></i>';
+
+                card.appendChild(leftDiv);
+                card.appendChild(rightSpan);
+                container.appendChild(card);
+            });
         }
 
         function renderTopics() {
             const container = document.getElementById('topics-container');
-            container.innerHTML = topicsList.map(t => `
-                <div class="glass-panel rounded-3xl p-6 border border-cosmos-accent/20 hover:border-cosmos-accent/50 transition">
-                    <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-cosmos-purple/40 text-cosmos-accent mb-3 inline-block">${t.tag}</span>
-                    <h3 class="font-bold text-base text-white mb-2">${t.title}</h3>
-                    <p class="text-gray-400 text-xs leading-relaxed">${t.desc}</p>
-                </div>
-            `).join('');
+            if (!container) return;
+            container.innerHTML = '';
+
+            topicsList.forEach(t => {
+                const card = document.createElement('div');
+                card.className = 'glass-panel rounded-3xl p-6 border border-cosmos-accent/20 hover:border-cosmos-accent/50 transition';
+
+                const tagSpan = document.createElement('span');
+                tagSpan.className = 'px-3 py-1 rounded-full text-[10px] font-bold bg-cosmos-purple/40 text-cosmos-accent mb-3 inline-block';
+                tagSpan.textContent = t.tag;
+
+                const titleH3 = document.createElement('h3');
+                titleH3.className = 'font-bold text-base text-white mb-2';
+                titleH3.textContent = t.title;
+
+                const descP = document.createElement('p');
+                descP.className = 'text-gray-400 text-xs leading-relaxed';
+                descP.textContent = t.desc;
+
+                card.appendChild(tagSpan);
+                card.appendChild(titleH3);
+                card.appendChild(descP);
+                container.appendChild(card);
+            });
         }
 
         function renderVideos() {
             const container = document.getElementById('videos-container');
-            container.innerHTML = youtubeVideos.map(v => `
-                <div class="glass-panel rounded-2xl p-3 border border-cosmos-accent/20">
-                    <div class="aspect-video rounded-xl overflow-hidden mb-3">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/${v.embedId}" title="${v.title}" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <span class="text-[10px] text-cosmos-gold font-bold uppercase tracking-wider">${v.type}</span>
-                    <h4 class="font-bold text-xs text-white line-clamp-2 mt-0.5">${v.title}</h4>
-                </div>
-            `).join('');
+            if (!container) return;
+            container.innerHTML = '';
+
+            youtubeVideos.forEach(v => {
+                const safeEmbedId = /^[a-zA-Z0-9_-]+$/.test(v.embedId) ? v.embedId : '';
+                if (!safeEmbedId) return;
+
+                const card = document.createElement('div');
+                card.className = 'glass-panel rounded-2xl p-3 border border-cosmos-accent/20';
+
+                const aspectDiv = document.createElement('div');
+                aspectDiv.className = 'aspect-video rounded-xl overflow-hidden mb-3';
+
+                const iframe = document.createElement('iframe');
+                iframe.className = 'w-full h-full';
+                iframe.src = `https://www.youtube.com/embed/${safeEmbedId}`;
+                iframe.title = v.title;
+                iframe.frameBorder = '0';
+                iframe.allowFullscreen = true;
+
+                aspectDiv.appendChild(iframe);
+
+                const typeSpan = document.createElement('span');
+                typeSpan.className = 'text-[10px] text-cosmos-gold font-bold uppercase tracking-wider';
+                typeSpan.textContent = v.type;
+
+                const titleH4 = document.createElement('h4');
+                titleH4.className = 'font-bold text-xs text-white line-clamp-2 mt-0.5';
+                titleH4.textContent = v.title;
+
+                card.appendChild(aspectDiv);
+                card.appendChild(typeSpan);
+                card.appendChild(titleH4);
+                container.appendChild(card);
+            });
         }
 
         function renderMusic() {
             const container = document.getElementById('music-container');
-            container.innerHTML = musicTracks.map(m => `
-                <div class="glass-panel p-6 rounded-3xl flex flex-col sm:flex-row items-center gap-6 border border-cosmos-accent/30">
-                    <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-cosmos-purple to-cosmos-deep flex items-center justify-center border border-cosmos-accent/40 flex-shrink-0">
-                        <i class="fas fa-music text-2xl text-cosmos-gold"></i>
-                    </div>
-                    <div class="space-y-2 text-center sm:text-left flex-grow">
-                        <span class="text-[10px] font-bold text-cosmos-accent uppercase tracking-widest">${m.type}</span>
-                        <h3 class="font-mincho text-xl font-bold text-white">${m.title}</h3>
-                        <p class="text-xs text-gray-400">${m.artist}</p>
-                        <a href="https://www.youtube.com/watch?v=${m.embedId}" target="_blank" class="inline-block mt-2 px-4 py-2 rounded-full bg-red-600/20 text-red-400 hover:bg-red-600 hover:text-white transition text-xs font-bold">
-                            <i class="fab fa-youtube mr-1.5"></i> YouTubeで再生
-                        </a>
-                    </div>
-                </div>
-            `).join('');
+            if (!container) return;
+            container.innerHTML = '';
+
+            musicTracks.forEach(m => {
+                const safeEmbedId = /^[a-zA-Z0-9_-]+$/.test(m.embedId) ? m.embedId : '';
+
+                const card = document.createElement('div');
+                card.className = 'glass-panel p-6 rounded-3xl flex flex-col sm:flex-row items-center gap-6 border border-cosmos-accent/30';
+
+                const iconBox = document.createElement('div');
+                iconBox.className = 'w-24 h-24 rounded-2xl bg-gradient-to-br from-cosmos-purple to-cosmos-deep flex items-center justify-center border border-cosmos-accent/40 flex-shrink-0';
+                iconBox.innerHTML = '<i class="fas fa-music text-2xl text-cosmos-gold"></i>';
+
+                const infoDiv = document.createElement('div');
+                infoDiv.className = 'space-y-2 text-center sm:text-left flex-grow';
+
+                const typeSpan = document.createElement('span');
+                typeSpan.className = 'text-[10px] font-bold text-cosmos-accent uppercase tracking-widest';
+                typeSpan.textContent = m.type;
+
+                const titleH3 = document.createElement('h3');
+                titleH3.className = 'font-mincho text-xl font-bold text-white';
+                titleH3.textContent = m.title;
+
+                const artistP = document.createElement('p');
+                artistP.className = 'text-xs text-gray-400';
+                artistP.textContent = m.artist;
+
+                const ytLink = document.createElement('a');
+                ytLink.href = `https://www.youtube.com/watch?v=${safeEmbedId}`;
+                ytLink.target = '_blank';
+                ytLink.rel = 'noopener noreferrer';
+                ytLink.className = 'inline-block mt-2 px-4 py-2 rounded-full bg-red-600/20 text-red-400 hover:bg-red-600 hover:text-white transition text-xs font-bold';
+                ytLink.innerHTML = '<i class="fab fa-youtube mr-1.5"></i> YouTubeで再生';
+
+                infoDiv.appendChild(typeSpan);
+                infoDiv.appendChild(titleH3);
+                infoDiv.appendChild(artistP);
+                if (safeEmbedId) infoDiv.appendChild(ytLink);
+
+                card.appendChild(iconBox);
+                card.appendChild(infoDiv);
+                container.appendChild(card);
+            });
         }
 
-        // MODAL LOGIC
+        // SAFE MODAL CONTROLLERS
         function openNewsDetail(index) {
             const news = newsList[index];
             if (!news) return;
+
             const modalBody = document.getElementById('modal-body');
-            modalBody.innerHTML = `
-                <span class="text-xs text-gray-400 font-mono">${news.date}</span>
-                <h3 class="font-bold text-lg text-white my-3">${news.title}</h3>
-                <p class="text-gray-300 text-xs leading-relaxed text-left">${news.content}</p>
-            `;
+            modalBody.innerHTML = '';
+
+            const dateSpan = document.createElement('span');
+            dateSpan.className = 'text-xs text-gray-400 font-mono';
+            dateSpan.textContent = news.date;
+
+            const titleH3 = document.createElement('h3');
+            titleH3.className = 'font-bold text-lg text-white my-3';
+            titleH3.textContent = news.title;
+
+            const contentP = document.createElement('p');
+            contentP.className = 'text-gray-300 text-xs leading-relaxed text-left';
+            contentP.textContent = news.content;
+
+            modalBody.appendChild(dateSpan);
+            modalBody.appendChild(titleH3);
+            modalBody.appendChild(contentP);
+
             document.getElementById('app-modal').classList.remove('hidden');
         }
 
         function openComingSoonModal(title) {
             const modalBody = document.getElementById('modal-body');
-            modalBody.innerHTML = `
-                <i class="fas fa-sparkles text-3xl text-cosmos-gold mb-3"></i>
-                <h3 class="font-cinzel text-xl font-bold text-gradient-gold">${title}</h3>
-                <p class="text-xs text-gray-300 my-4 leading-relaxed">
-                    公式グッズの受注販売およびストアページは準備中です。<br>
-                    準備が整い次第、NEWSおよび公式YouTubeチャンネル・SNS等でお知らせいたします。
-                </p>
-                <button onclick="closeAppModal()" class="px-6 py-2.5 rounded-full bg-cosmos-purple text-white text-xs font-bold">
-                    閉じる
-                </button>
-            `;
+            modalBody.innerHTML = '';
+
+            const icon = document.createElement('i');
+            icon.className = 'fas fa-sparkles text-3xl text-cosmos-gold mb-3';
+
+            const titleH3 = document.createElement('h3');
+            titleH3.className = 'font-cinzel text-xl font-bold text-gradient-gold';
+            titleH3.textContent = title;
+
+            const descP = document.createElement('p');
+            descP.className = 'text-xs text-gray-300 my-4 leading-relaxed';
+            descP.innerHTML = '公式グッズの受注販売およびストアページは準備中です。<br>準備が整い次第、NEWSおよび公式YouTubeチャンネル・SNS等でお知らせいたします。';
+
+            const closeBtn = document.createElement('button');
+            closeBtn.className = 'px-6 py-2.5 rounded-full bg-cosmos-purple text-white text-xs font-bold';
+            closeBtn.textContent = '閉じる';
+            closeBtn.onclick = closeAppModal;
+
+            modalBody.appendChild(icon);
+            modalBody.appendChild(titleH3);
+            modalBody.appendChild(descP);
+            modalBody.appendChild(closeBtn);
+
             document.getElementById('app-modal').classList.remove('hidden');
         }
 
@@ -583,15 +792,25 @@
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            if (menu) menu.classList.toggle('hidden');
         }
 
         function handleContactSubmit(e) {
             e.preventDefault();
-            alert('お問い合わせを受け付けました。ありがとうございます。');
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const message = document.getElementById('contact-message').value;
+
+            if (!name.trim() || !email.trim() || !message.trim()) {
+                alert('すべての必須項目を入力してください。');
+                return;
+            }
+
+            alert(`${sanitizeText(name)} 様、お問い合わせを受け付けました。ありがとうございます。`);
             e.target.reset();
         }
 
+        // 初期化実行
         window.onload = function() {
             renderNews();
             renderTopics();
